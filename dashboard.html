@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Lost & Found Portal</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav>
+    <div class="logo">Lost & Found Portal</div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="dashboard-section">
+    <h2>Lost & Found Items Dashboard</h2>
+
+    <div class="filter-section">
+      <label for="status-filter">Filter by Status:</label>
+      <select id="status-filter">
+        <option value="all">All</option>
+        <option value="lost">Lost</option>
+        <option value="found">Found</option>
+      </select>
+    </div>
+
+    <table class="items-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Location</th>
+          <th>Date Reported</th>
+        </tr>
+      </thead>
+      <tbody id="items-tbody">
+        <tr>
+          <td>Backpack</td>
+          <td>Black with laptop inside</td>
+          <td>Lost</td>
+          <td>Library</td>
+          <td>2025-05-27</td>
+        </tr>
+        <tr>
+          <td>Water Bottle</td>
+          <td>Blue color, stainless steel</td>
+          <td>Found</td>
+          <td>Cafeteria</td>
+          <td>2025-05-26</td>
+        </tr>
+        <!-- More items here -->
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    const filterSelect = document.getElementById('status-filter');
+    const tbody = document.getElementById('items-tbody');
+
+    filterSelect.addEventListener('change', () => {
+      const filterValue = filterSelect.value;
+      for (const row of tbody.rows) {
+        const status = row.cells[2].textContent.toLowerCase();
+        if (filterValue === 'all' || status === filterValue) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
