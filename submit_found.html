@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submit Found Item</title>
+</head>
+<body>
+  <h2>Submit a Found Item</h2>
+  <form action="submit_item.php" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="type" value="found">
+    
+    <label>Category:</label>
+    <select name="category" required>
+      <option value="">Select a Category</option>
+      <option value="Electronics">Electronics</option>
+      <option value="Jewellery">Jewellery</option>
+      <option value="Money">Money</option>
+      <option value="ID Cards">ID Cards</option>
+      <option value="Others">Others</option>
+    </select><br><br>
+
+    <label>Title:</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <label>Description:</label><br>
+    <textarea name="description" required></textarea><br><br>
+
+    <label>Upload Image:</label><br>
+    <input type="file" name="image" accept="image/*" required><br><br>
+
+    <input type="submit" value="Submit Found Item">
+  </form>
+</body>
+</html>
